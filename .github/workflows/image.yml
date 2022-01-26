@@ -49,5 +49,6 @@ jobs:
           cd misc/snapshotter
           docker build -t ${{ env.REGISTRY }}/${{ env.ORGANIZATION }}/nydus-snapshotter:$TAG .
           # Only push for non pull_request
-          [ "$GITHUB_EVENT_NAME" != "pull_request" ] && \
+          if [ "$GITHUB_EVENT_NAME" != "pull_request" ]; then
               docker push ${{ env.REGISTRY }}/${{ env.ORGANIZATION }}/nydus-snapshotter:$TAG
+          fi
