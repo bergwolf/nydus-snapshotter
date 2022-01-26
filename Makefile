@@ -37,4 +37,3 @@ test:
 cover:
 	go test -v -covermode=atomic -coverprofile=coverage.txt ./...
 	go tool cover -func=coverage.txt
-
