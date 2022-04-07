@@ -22,7 +22,7 @@ jobs:
           path: ~/go/pkg/mod
           key: ${{ runner.os }}-go-${{ hashFiles('go.sum') }}
           restore-keys: |
-            ${{ runner.os }}-go
+            ${{ runner.os }}-go-${{ hashFiles('go.sum') }}
       - name: build nydus-snapshotter
         run: |
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.43.0
